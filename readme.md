@@ -1,0 +1,3 @@
+## 概要
+GitLabのWebHookが利用できない環境で、CommitやMergeRequestの通知をMattermostへ通知する
+
