@@ -60,12 +60,11 @@ def grouplink():
 def format_mergerequest(mr):
     data = {}
     a = "---------------- \n"
-    a+= "### MergeRequest / [" + args.project + "](" + prjlink() + ")\n\n"
-    a+= "| | |\n"
+    a+= "### MergeRequest : [" + args.project + "](" + prjlink() + ")\n\n"
+    a+= "| Title | [" + mr["title"].strip() + "](" + mrlink(mr["iid"]) + ") |\n"
     a+= "|--|--|\n"
     #a+= "| Type | Merge Request |\n"
     a+= "| Project | [" + args.group + "](" + grouplink() + ") / [" + args.project + "](" + prjlink() + ") |\n"
-    a+= "| Title | [" + mr["title"].strip() + "](" + mrlink(mr["iid"]) + ") |\n"
     a+= "| Source Branch | [" + mr["source_branch"] + "](" + commitlink(mr["source_branch"]) +") |\n"
     a+= "| Target Branch | [" + mr["target_branch"] + "](" + commitlink(mr["target_branch"])+ ") |\n"
     a+= "| Status | " + mr["state"] + " |\n"
@@ -81,11 +80,10 @@ def format_mergerequest(mr):
 def format_commit(cm, br):
     data = {}
     a = "---------------- \n"
-    a+= "### Commit / [" + args.project + "](" + prjlink() + ")\n\n"
-    a+= "| | |\n"
+    a+= "### Commit : [" + args.project + "](" + prjlink() + ")\n\n"
+    a+= "| ID | [" + cm["id"] + "](" + commitlink(cm["id"]) + ") |\n"
     a+= "|--|--|\n"
     #a+= "| Type | Commit |\n"
-    a+= "| ID | [" + cm["id"] + "](" + commitlink(cm["id"]) + ") |\n"
     a+= "| Project | [" + args.group + "](" + grouplink() + ") / [" + args.project + "](" + prjlink() + ") |\n"
     a+= "| Title | " + cm["title"].strip() + " |\n"
     a+= "| Branch | " + br["name"] + " |\n"
